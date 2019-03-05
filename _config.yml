@@ -1,0 +1,18 @@
+
+include:
+    - _www
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+sass:
+    style: compressed
+
+# seo information
+author: Christopher Voigt
+title: Awesome WeatherPWA
+description: A progressive web app that takes away the work of looking out the window!
+
+# manifest information
+short_name: WeatherPWA
