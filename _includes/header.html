@@ -1,0 +1,9 @@
+<header>
+  <h1>
+    {% if page.url == '/' %}
+      <a href='#main' title='Jump to main content'>{{ site.title }}</a>
+    {% else %}
+      <a href='{{ "/" | relative_url }}' title='Go back to home page'>{{ site.title }}</a>
+    {% endif %}
+  </h1>
+</header>

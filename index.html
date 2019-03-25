@@ -16,8 +16,12 @@ permalink: /
     <link rel='stylesheet' href='{{ "/assets/stylesheet.css" | relative_url }}'>
   </head>
   <body>
+    {%- include header.html -%}
 
-    Hello World!
+    <main id='main'>
+      Hello World!
+    </main>
 
+    {%- include footer.html -%}
   </body>
 </html>
