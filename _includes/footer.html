@@ -1,22 +1,17 @@
 <footer>
-
-  <p>Follow me:</p>
-
   <ul class='socialMedia'>
     {%- if site.github_username -%}
-      <li>
+      <li class='socialMedia_item'>
         <a href='https://github.com/{{ site.github_username | cgi_escape | escape }}' title='Github profile'>
           <span class='icon -github'>{% include svg/icon-github.svg %}</span>
-          <span>{{ site.github_username | escape }}</span>
         </a>
       </li>
     {%- endif -%}
 
     {%- if site.twitter_username -%}
-      <li>
+      <li class='socialMedia_item'>
         <a href='https://twitter.com/{{ site.twitter_username | cgi_escape | escape }}' title='Twitter profile'>
           <span class='icon -twitter'>{% include svg/icon-twitter.svg %}</span>
-          <span>{{ site.twitter_username | escape }}</span>
         </a>
       </li>
     {%- endif -%}

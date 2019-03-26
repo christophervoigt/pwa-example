@@ -1,0 +1,32 @@
+
+.socialMedia {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &_item + &_item {
+    margin-left: 30px;
+  }
+
+  a:focus {
+    .icon svg {
+      transform: scale(1.25);
+    }
+  }
+
+  .icon svg {
+    width: 34px;
+    height: 34px;
+    transition: transform .2s ease-out;
+
+    path {
+      fill: $background-pastel;
+      transition: fill .2s ease-out;
+    }
+  }
+}
