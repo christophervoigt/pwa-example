@@ -1,0 +1,15 @@
+
+.currentWeather {
+  padding: 20px;
+  background: $background-green;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.17);
+
+  &_icon {
+    font-size: 34px;
+  }
+
+  &_temperature {
+
+  }
+}
