@@ -1,0 +1,26 @@
+{
+  "name": "the-weather",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Christopher Voigt <chlorophyllkid@gmail.com>",
+  "description": "A progressive web app that takes away the work to look out of the window!",
+  "scripts": {
+    "start": "npm run rollup:watch | npm run jekyll:watch",
+    "build": "npm run rollup:build && npm run jekyll:build",
+    "jekyll:watch": "bundle exec jekyll serve --livereload",
+    "jekyll:build": "bundle exec jekyll build",
+    "rollup:watch": "rollup --config rollup.config.js --watch",
+    "rollup:build": "rollup --config rollup.config.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "rollup": "^1.10.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-uglify": "^6.0.2",
+    "uglify-es": "^3.3.9"
+  }
+}
