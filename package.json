@@ -4,6 +4,10 @@
   "license": "MIT",
   "author": "Christopher Voigt <chlorophyllkid@gmail.com>",
   "description": "A progressive web app that takes away the work to look out of the window!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chlorophyllkid/the-weather.git"
+  },
   "scripts": {
     "start": "npm run rollup:watch | npm run jekyll:watch",
     "build": "npm run rollup:build && npm run jekyll:build",
