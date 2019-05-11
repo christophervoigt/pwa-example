@@ -1,19 +1,19 @@
 <footer>
   <ul class='socialMedia'>
-    {%- if site.github_username -%}
+    {%- if site.github -%}
       <li class='socialMedia_item'>
-        <a href='https://github.com/{{ site.github_username | cgi_escape | escape }}' title='Github profile'>
+        <a href='https://github.com/{{ site.github.username }}/{{ site.github.repository_name }}' title='Github repository' target='_blank'>
           <span class='icon -github'>{% include svg/icon-github.svg %}</span>
         </a>
       </li>
     {%- endif -%}
 
-    {%- if site.twitter_username -%}
-      <li class='socialMedia_item'>
-        <a href='https://twitter.com/{{ site.twitter_username | cgi_escape | escape }}' title='Twitter profile'>
-          <span class='icon -twitter'>{% include svg/icon-twitter.svg %}</span>
-        </a>
-      </li>
+    {%- if site.netlify -%}
+    <li class='socialMedia_item'>
+      <a href='https://{{ site.netlify.project_name }}.netlify.com' title='Netlify project' target='_blank'>
+        <span class='icon -netlify'>{% include svg/icon-netlify.svg %}</span>
+      </a>
+    </li>
     {%- endif -%}
   </ul>
 </footer>

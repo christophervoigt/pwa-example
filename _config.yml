@@ -12,12 +12,18 @@ sass:
 
 # seo information
 author: Christopher Voigt
-title: the Weather
-description: A progressive web app that takes away the work to look out of the window!
+title: PWA Example
+description: A simple blog page for my talk at MobileCamp '19
 
 # manifest information
-short_name: Weather
+manifest:
+  name: PWA Example
+  short_name: Example
+  display: standalone
 
-# social media
-github_username: chlorophyllkid
-twitter_username: chlorophyllkid
+github:
+  username: chlorophyllkid
+  repository_name: pwa-example
+
+netlify:
+  project_name: chlorophyllkid-pwa-example

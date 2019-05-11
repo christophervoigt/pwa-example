@@ -1,12 +1,12 @@
 {
-  "name": "the-weather",
+  "name": "pwa-example",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Christopher Voigt <chlorophyllkid@gmail.com>",
-  "description": "A progressive web app that takes away the work to look out of the window!",
+  "description": "A simple blog page for my talk at MobileCamp '19",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chlorophyllkid/the-weather.git"
+    "url": "git+https://github.com/chlorophyllkid/pwa-example.git"
   },
   "scripts": {
     "start": "npm run rollup:watch | npm run jekyll:watch",
