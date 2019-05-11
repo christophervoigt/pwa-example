@@ -6,6 +6,7 @@ exclude:
   - package-lock.json
   - rollup.config.js
   - node_modules
+  - netlify.toml
 
 sass:
   style: compressed
