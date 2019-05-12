@@ -1,6 +1,6 @@
 
-export default function bundle() {
-  const calculation = 2 * 3;
+import latestNews from './react/latestNews.jsx';
 
-  console.log('calc', calculation);
+export default function bundle() {
+  latestNews();
 }
