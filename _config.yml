@@ -8,6 +8,9 @@ exclude:
   - node_modules
   - netlify.toml
 
+source: src
+destination: dist
+
 sass:
   style: compressed
 

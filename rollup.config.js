@@ -5,7 +5,7 @@ const { uglify } = require('rollup-plugin-uglify');
 const { minify } = require('uglify-es');
 
 module.exports = {
-  input: '_es6/bundle.js',
+  input: 'src/_es6/bundle.js',
   plugins: [
     resolve(),
     commonjs(),
@@ -19,7 +19,7 @@ module.exports = {
   output: {
     name: 'script',
     format: 'iife',
-    file: 'assets/script.js',
+    file: 'src/assets/script.js',
     sourcemap: false,
     intro: 'document.addEventListener("DOMContentLoaded",function(){bundle()});',
   }

@@ -19,18 +19,13 @@ body {
     position: relative;
     padding: 20px 0;
 
-    &:before,
-    &:after {
+    &:before {
       position: absolute;
       top: 100%;
       left: 0;
       width: 100%;
       content: '';
       border-bottom: 1px solid $newspaper-black;
-    }
-
-    &:after {
-      top: calc(100% + .6em);
     }
 
     h1 {
@@ -41,6 +36,8 @@ body {
       max-width: 1200px;
       margin: 0 auto;
 
+      font-size: 96px;
+
       a {
         display: flex;
         align-items: flex-start;
@@ -49,7 +46,8 @@ body {
 
         span:first-of-type {
           font-size: .5em;
-          padding: .4em .2em;
+          padding-top: .3em;
+          padding-right: .2em;
         }
 
         &:hover,

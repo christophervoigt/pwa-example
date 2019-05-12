@@ -1,0 +1,39 @@
+---
+permalink: /
+---
+
+<!DOCTYPE html>
+<html lang='{{ page.lang | default: site.lang | default: "en" }}'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge, chrome=1'>
+
+    {%- seo -%}
+
+    <link rel='shortcut icon' type='image/x-icon' href='{{ "/favicon.ico" | relative_url }}'>
+    <link rel='manifest' href='{{ "/manifest.json" | relative_url }}'>
+    <meta name="msapplication-config" content='{{ "/browserconfig.xml" | relative_url }}'>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="194x194" href="/icons/favicon-194x194.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#121212">
+    <link rel="shortcut icon" href="/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#fbfbf8">
+    <meta name="theme-color" content="#fbfbf8">
+
+    <link rel='stylesheet' href='{{ "/assets/stylesheet.css" | relative_url }}'>
+    <script type="text/javascript" src='{{ "/assets/script.js" | relative_url }}'></script>
+  </head>
+  <body>
+    {%- include header.html -%}
+
+    <main id='main'>
+
+    </main>
+
+    {%- include footer.html -%}
+  </body>
+</html>
