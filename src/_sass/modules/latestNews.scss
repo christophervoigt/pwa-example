@@ -1,6 +1,15 @@
 
 .latestNews {
-  margin-bottom: 20px;
+  margin-bottom: 2em;
+
+  display: flex;
+  flex-direction: column;
+
+  svg {
+    align-self: center;
+    width: 150px;
+    height: 150px;
+  }
 
   &_article {
     position: relative;
