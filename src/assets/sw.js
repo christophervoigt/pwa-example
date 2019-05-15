@@ -2,7 +2,7 @@
 var CACHE_NAME = 'pwa-example-v1';
 
 var urlsToCache = [
-  '/',
+  '/index.html',
   '/assets/script.js',
   '/assets/stylesheet.css',
 ];
