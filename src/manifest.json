@@ -46,5 +46,6 @@
   ],
   "theme_color": "#fbfbf8",
   "background_color": "#fbfbf8",
-  "display": "{{ site.manifest.display }}"
+  "display": "{{ site.manifest.display }}",
+  "orientation": "natural"
 }
