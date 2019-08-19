@@ -16,13 +16,13 @@ sass:
 
 # seo information
 author: Christopher Voigt
-title: PWA Example
-description: A simple blog page for my talk at MobileCamp '19
+title: the News
+description: A simple news page for my talk at MobileCamp '19
 
 # manifest information
 manifest:
-  name: PWA Example
-  short_name: Example
+  name: the News
+  short_name: News
   display: standalone
 
 github:
