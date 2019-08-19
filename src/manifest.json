@@ -3,7 +3,8 @@
 
 {
   "lang": "en",
-  "start_url": "/",
+  "start_url": "https://chlorophyllkid-pwa-example.netlify.com/",
+  "scope": "/",
   "name": "{{ site.manifest.name }}",
   "short_name": "{{ site.manifest.short_name }}",
   "icons": [
