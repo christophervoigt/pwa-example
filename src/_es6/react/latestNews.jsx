@@ -21,8 +21,8 @@ class NewsList extends React.Component {
 
   render() {
     const news = [];
-
     const articles = this.props.articles;
+
     articles.forEach((article) => {
       const date = new Date(article.publishedAt)
       const dateString= date.toLocaleDateString('de-DE', { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit'});

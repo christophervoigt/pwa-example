@@ -1,35 +1,26 @@
 
 .latestNews {
   margin-bottom: 2em;
-
   display: flex;
   flex-direction: column;
 
-  svg {
-    align-self: center;
-    width: 150px;
-    height: 150px;
-  }
-
   &_article {
     position: relative;
-    transition: background .2s ease-out;
     margin-bottom: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr;
     grid-template-areas:
-        "image"
-        "date"
-        "title"
-        "description";
+      "image"
+      "date"
+      "title"
+      "description";
 
     @media (min-width: 48rem) {
-      padding-left: 0;
-      padding-right: 0;
+      grid-gap: 30px;
       grid-template-columns: 1fr 3fr;
       grid-template-areas:
         "image date"
@@ -71,5 +62,113 @@
   &_articleDate {
     grid-area: date;
     font-size: 1rem;
+  }
+}
+
+.latestNews_article:empty {
+  grid-template-areas:
+    "image"
+    "description";
+
+  --line-padding: 10px;
+
+  --text-line-height: 18px;
+  --title-height: 28px;
+
+  --animation-skeleton: linear-gradient(135deg, transparent 33%, #{$newspaper-background} 50%, transparent 66%);
+  --image-skeleton: linear-gradient(lightgrey 180px, transparent 0);
+  --text-line-skeleton: linear-gradient(lightgrey var(--text-line-height), transparent 0);
+  --title-skeleton: linear-gradient(lightgrey var(--title-height), transparent 0);
+
+  --date-width: 62.5%;
+  --title-width: 100%;
+  --desc1-width: 100%;
+  --desc3-width: 62.5%;
+
+  --line-padding: 10px;
+
+  --date-position: 0 0;
+  --title-position: 0 calc(var(--text-line-height) + var(--line-padding));
+  --desc1-position: 0 calc(var(--text-line-height) + var(--title-height) + var(--line-padding) * 2);
+  --desc2-position: 0 calc(var(--text-line-height) * 2 + var(--title-height) + var(--line-padding) * 2 + 10px);
+  --desc3-position: 0 calc(var(--text-line-height) * 3 + var(--title-height) + var(--line-padding) * 2 + 20px);
+
+  --blur-width: 200px;
+  --blur-size: var(--blur-width) 180px;
+
+  @media (min-width: 48rem) {
+    grid-template-areas: "image description";
+
+    --line-padding: 30px;
+    --date-width: 25%;
+  }
+
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+  }
+
+  &::before {
+    grid-area: image;
+    height: 180px;
+
+    background-image:
+      var(--animation-skeleton),
+      var(--image-skeleton);
+
+    background-size:
+      200% 180px,   //animation
+      100% 100%;    //image
+
+    background-position:
+      100% 100%,    //animation
+      0 0;          //image
+
+    animation: loading 1.5s infinite linear;
+    @keyframes loading {
+      to {
+        background-position:
+          -100% -100%,  //animation
+          0 0;          //image
+      }
+    }
+  }
+
+  &::after {
+    grid-area: description;
+    height: 140px;
+
+    @media (min-width: 48rem) {
+      height: auto;
+    }
+
+    background-image:
+      var(--text-line-skeleton),  //date
+      var(--title-skeleton),      //title
+      var(--text-line-skeleton),  //desc1
+      var(--text-line-skeleton),  //desc2
+      var(--text-line-skeleton)   //desc3
+    ;
+
+    background-size:
+      var(--date-width) var(--text-line-height),
+      var(--title-width) var(--title-height),
+      var(--desc1-width) var(--text-line-height),
+      var(--desc1-width) var(--text-line-height),
+      var(--desc3-width) var(--text-line-height),
+    ;
+
+    background-position:
+      var(--date-position),       //date
+      var(--title-position),      //title
+      var(--desc1-position),      //description
+      var(--desc2-position),      //description
+      var(--desc3-position)       //description
+    ;
+
+    background-repeat: no-repeat;
   }
 }
