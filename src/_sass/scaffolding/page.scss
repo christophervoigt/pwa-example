@@ -7,7 +7,7 @@ body {
   flex-direction: column;
   min-height: 100%;
   color: $newspaper-black;
-  background: $newspaper-background;
+  background: $newspaper-white;
 
   & > header,
   & > footer {
@@ -15,62 +15,9 @@ body {
     flex-shrink: 0;
   }
 
-  & > header {
-    position: relative;
-    padding: 20px 0;
-
-    &:before {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      content: '';
-      border-bottom: 1px solid $newspaper-black;
-    }
-
-    .pageTitle {
-      display: flex;
-      justify-content: center;
-
-      font-weight: 200;
-      max-width: 1200px;
-      margin: 0 auto;
-
-      font-size: 96px;
-
-      a {
-        display: flex;
-        align-items: flex-start;
-        color: inherit;
-        text-decoration: none;
-
-        span:first-of-type {
-          font-size: .5em;
-          padding-top: .3em;
-          padding-right: .2em;
-        }
-
-        &:hover,
-        &:focus {
-          span:first-of-type { text-decoration: none; }
-          span:last-of-type { text-decoration: underline; }
-        }
-      }
-    }
-  }
-
   & > footer {
     position: relative;
     padding: 1em 0;
-
-    &:before {
-      position: absolute;
-      bottom: 100%;
-      left: 0;
-      width: 100%;
-      content: '';
-      border-bottom: 1px solid $newspaper-black;
-    }
   }
 
   & > main {

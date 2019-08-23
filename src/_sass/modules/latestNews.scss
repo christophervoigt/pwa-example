@@ -75,7 +75,7 @@
   --text-line-height: 18px;
   --title-height: 28px;
 
-  --animation-skeleton: linear-gradient(135deg, transparent 33%, #{$newspaper-background} 50%, transparent 66%);
+  --animation-skeleton: linear-gradient(135deg, transparent 33%, #{$newspaper-white} 50%, transparent 66%);
   --image-skeleton: linear-gradient(lightgrey 180px, transparent 0);
   --text-line-skeleton: linear-gradient(lightgrey var(--text-line-height), transparent 0);
   --title-skeleton: linear-gradient(lightgrey var(--title-height), transparent 0);
