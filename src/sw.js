@@ -11,15 +11,12 @@ self.addEventListener('install', (event) => {
       '/',
       '/assets/script.js',
       '/assets/stylesheet.css',
-
       '/manifest.json',
       '/icons/favicon.ico',
       '/icons/favicon-16x16.png',
       '/icons/favicon-32x32.png',
       '/icons/favicon-194x194.png',
       '/icons/android-chrome-192x192.png',
-
-      '/images/fallback.png',
     ]);
   })());
 });
