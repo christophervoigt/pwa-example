@@ -1,8 +1,8 @@
 
+import registerServiceWorker from './partials/registerServiceWorker';
 import latestNews from './react/latestNews.jsx';
-import register from './partials/registerServiceWorker';
 
 export default function bundle() {
+  registerServiceWorker();
   latestNews();
-  register();
 }
