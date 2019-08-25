@@ -29,10 +29,16 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       (async () => {
         const cache = await caches.open(CACHE_NAME);
-        const cacheResponse = await cache.match(event.request);
-        if (cacheResponse) { return cacheResponse; }
 
-        const fetchResponse = await fetch(event.request)
+        if (!/newsapi\.org/g.test(url.href)) {
+          const cacheResponse = await cache.match(event.request);
+          if (cacheResponse) return cacheResponse;
+        }
+
+        const fetchResponse = await fetch(event.request).catch((error) => {
+          return cache.match(event.request);
+        });
+
         cache.put(event.request, fetchResponse.clone());
         return fetchResponse;
       })()
