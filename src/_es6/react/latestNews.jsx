@@ -16,7 +16,6 @@ export default function latestNews() {
 
 const NewsList = ({ articles }) => {
   const news = [];
-  const articles = this.props.articles;
 
   articles.forEach((article) => {
     const date = new Date(article.publishedAt)
