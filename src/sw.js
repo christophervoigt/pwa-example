@@ -35,10 +35,10 @@ self.addEventListener('fetch', (event) => {
           if (cacheResponse) return cacheResponse;
         }
 
-        await fetch(event.request, { mode: 'no-cors' })
+        await fetch(event.request)
         .then((response) => {
-          cache.put(event.request, fetchResponse.clone());
-          return fetchResponse;
+          cache.put(event.request, response.clone());
+          return response;
         })
         .catch((error) => {
           return cache.match(event.request);
