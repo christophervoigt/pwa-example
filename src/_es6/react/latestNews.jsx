@@ -9,7 +9,7 @@ export default function latestNews() {
   const api = `https://newsapi.org/v2/top-headlines?country=de&apiKey=${api_key}`;
 
   if (container) {
-    fetch(api)
+    fetch(api, { mode: 'no-cors' })
     .then(response => response.json())
     .then(json => ReactDOM.render(<NewsList articles={json.articles}/>, container))
     .catch(error => console.error('Error:', error));

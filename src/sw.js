@@ -35,12 +35,14 @@ self.addEventListener('fetch', (event) => {
           if (cacheResponse) return cacheResponse;
         }
 
-        const fetchResponse = await fetch(event.request).catch((error) => {
+        await fetch(event.request, { mode: 'no-cors' })
+        .then((response) => {
+          cache.put(event.request, fetchResponse.clone());
+          return fetchResponse;
+        })
+        .catch((error) => {
           return cache.match(event.request);
         });
-
-        cache.put(event.request, fetchResponse.clone());
-        return fetchResponse;
       })()
     );
   }
