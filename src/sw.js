@@ -36,7 +36,7 @@ self.addEventListener('fetch', (event) => {
 
     await fetch(event.request)
     .then((response) => {
-      cache.put(event.request, response.clone());
+      // cache.put(event.request, response.clone());
       return response;
     })
     .catch((error) => {
