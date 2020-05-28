@@ -30,14 +30,19 @@ self.addEventListener('fetch', (event) => {
       (async () => {
         const cache = await caches.open(CACHE_NAME);
 
-        if (!/netlify\/functions/g.test(url.href)) {
+        if (!/getNews/g.test(url.href)) {
           const cacheResponse = await cache.match(event.request);
           if (cacheResponse) return cacheResponse;
         }
 
         await fetch(event.request)
         .then((response) => {
-          cache.put(event.request, response.clone());
+          const contentType = response.headers.get('content-type');
+
+          if (!/getNews/g.test(url.href)) {
+            cache.put(event.request, response.clone());
+          }
+
           return response;
         })
         .catch((error) => {
