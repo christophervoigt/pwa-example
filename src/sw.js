@@ -28,22 +28,26 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(async function() {
     const cache = await caches.open(CACHE_NAME);
 
-    if (!/getNews/g.test(url.href)) {
-      const cacheResponse = await cache.match(event.request);
-      if (cacheResponse) return cacheResponse;
-    }
+    // if (!/getNews/g.test(url.href)) {
+    //   const cacheResponse = await cache.match(event.request);
+    //   if (cacheResponse) return cacheResponse;
+    // }
 
     await fetch(event.request)
     .then((response) => {
 
-      if (!/getNews/g.test(url.href)) {
-        cache.put(event.request, response.clone());
+      // if (!/getNews/g.test(url.href)) {
+      //   cache.put(event.request, response.clone());
+      // }
+
+      if (!response.ok) {
+        throw new TypeError('Bad response status');
       }
 
-      return response;
+      return cache.put(url, response);
     })
     .catch((error) => {
-      return cache.match(event.request);
+      throw new Error(error);
     });
   }());
 });
