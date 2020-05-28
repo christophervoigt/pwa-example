@@ -9,6 +9,7 @@ self.addEventListener('install', (event) => {
 
     return cache.addAll([
       '/',
+      '/index.html',
       '/assets/script.js',
       '/assets/stylesheet.css',
       '/manifest.json',
@@ -28,26 +29,18 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(async function() {
     const cache = await caches.open(CACHE_NAME);
 
-    // if (!/getNews/g.test(url.href)) {
-    //   const cacheResponse = await cache.match(event.request);
-    //   if (cacheResponse) return cacheResponse;
-    // }
+    if (!/getNews/g.test(url.href)) {
+      const cacheResponse = await caches.match(event.request);
+      if (cacheResponse) return cacheResponse;
+    }
 
     await fetch(event.request)
     .then((response) => {
-
-      // if (!/getNews/g.test(url.href)) {
-      //   cache.put(event.request, response.clone());
-      // }
-
-      if (!response.ok) {
-        throw new TypeError('Bad response status');
-      }
-
-      return cache.put(url, response);
+      cache.put(event.request, response.clone());
+      return response;
     })
     .catch((error) => {
-      throw new Error(error);
+      return caches.match(event.request);
     });
   }());
 });
