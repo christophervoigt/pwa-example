@@ -37,16 +37,13 @@ self.addEventListener('fetch', (event) => {
 
         await fetch(event.request)
         .then((response) => {
-          const contentType = response.headers.get('content-type');
-
-          if (!/getNews/g.test(url.href)) {
-            cache.put(event.request, response.clone());
-          }
-
+          cache.put(event.request, response.clone());
           return response;
         })
         .catch((error) => {
-          return cache.match(event.request);
+          const cacheResponse = cache.match(event.request);
+          if (cacheResponse) return cacheResponse;
+          return error;
         });
       })()
     );
