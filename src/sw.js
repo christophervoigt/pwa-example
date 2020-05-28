@@ -25,31 +25,27 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  if (/^http/.test(url.href)) {
-    event.respondWith(
-      (async () => {
-        const cache = await caches.open(CACHE_NAME);
+  event.respondWith(async function() {
+    const cache = await caches.open(CACHE_NAME);
 
-        if (!/getNews/g.test(url.href)) {
-          const cacheResponse = await cache.match(event.request);
-          if (cacheResponse) return cacheResponse;
-        }
+    if (!/getNews/g.test(url.href)) {
+      const cacheResponse = await cache.match(event.request);
+      if (cacheResponse) return cacheResponse;
+    }
 
-        await fetch(event.request)
-        .then((response) => {
+    await fetch(event.request)
+    .then((response) => {
 
-          if (!/getNews/g.test(url.href)) {
-            cache.put(event.request, response.clone());
-          }
+      if (!/getNews/g.test(url.href)) {
+        cache.put(event.request, response.clone());
+      }
 
-          return response;
-        })
-        .catch((error) => {
-          return cache.match(event.request);
-        });
-      })()
-    );
-  }
+      return response;
+    })
+    .catch((error) => {
+      return cache.match(event.request);
+    });
+  }());
 });
 
 
