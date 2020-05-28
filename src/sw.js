@@ -30,7 +30,7 @@ self.addEventListener('fetch', (event) => {
       (async () => {
         const cache = await caches.open(CACHE_NAME);
 
-        if (!/newsapi\.org/g.test(url.href)) {
+        if (!/netlify\/functions/g.test(url.href)) {
           const cacheResponse = await cache.match(event.request);
           if (cacheResponse) return cacheResponse;
         }
